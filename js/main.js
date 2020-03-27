@@ -1,37 +1,29 @@
-var stat = false;
-var c = document.getElementById('input').value;
 
-function dis(val){
-    document.getElementById('input').value+=val;
-    document.getElementById('input').focus();
+function isInputNumber(evt) {
+
+    let userInput = evt.key;
     
+    if((/[a-z]/.test(userInput))) {
+        evt.preventDefault();
+    }
 }
-function eq(val){
 
-    let i = document.getElementById('input').value;
-        let r = eval(i);
-        document.getElementById('input').value = r;
-        document.getElementById('input').focus();
+//to solve all the input value
+function calcNumbers(result){
+    form.userInput.value=form.userInput.value+result;    
 }
-function pow(val){
-    document.getElementById('input').value+=val;
-    document.getElementById('input').focus();
-    stat = true;
+
+//function to display the sqaure root of a number
+function display(input) {
+    document.getElementById('userInput').value += input;
+    document.getElementById('userInput').focus();
 }
-function cl(){
-    c = "";
-    document.getElementById('input').value = c;
-    document.getElementById('input').focus();
+
+//function for percentage
+function percent(val) {
+    let x = document.getElementById('userInput').value;
+    let a = eval(x);
+    let y = a*100;
+    document.getElementById('displayResult').value = y + '%';
 }
-function del(){
-    let x = document.getElementById('input').value;
-        x = x.substring(0, x.length - 1);
-    document.getElementById('input').value = x;
-    document.getElementById('input').focus();
-}
-var p = document.getElementById('input');
-p.addEventListener('input', validate);
-function validate(){
-    let val = this.value.replace(new RegExp (/[^\d\+\-\/\*\%\=]/), "");
-    this.value = val;
-}
+
